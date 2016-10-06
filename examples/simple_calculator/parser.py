@@ -6,34 +6,23 @@ def p_expression_plus(p):
     'expression : expression PLUS term'
     p[0] = p[1] + p[3]
 
-def p_expression_plus(p):
+def p_expression_minus(p):
     'expression : expression MINUS term'
-    p[0] = p[1] + p[3]
+    p[0] = p[1] - p[3]
 
 def p_expression_term(p):
     'expression : term'
     p[0] = p[1]
 
-def p_term_factor(p):
-    'term : factor'
+def p_term_number(p):
+    'term : NUMBER'
     p[0] = p[1]
 
-def p_factor_number(p):
-    'factor : NUMBER'
+def p_error(p):
+    print("Hubo un error en el parseo.")
 
+    parser.restart()
 
 
 # Build the parser
 parser = yacc.yacc(debug=True)
-
-if __name__ == '__main__':
-    while True:
-        try:
-            s = input('calc > ')
-        except EOFError:
-            break
-        if not s:
-            continue
-
-        result = parser.parse(s)
-        print(result)

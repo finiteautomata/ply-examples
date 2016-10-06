@@ -14,32 +14,20 @@ t_TOKEN puede ser:
 - Una expresión regular
 - Una función cuyo docstring sea una expresión regular (bizarro).
 
-En el segundo caso, podemos hacer algunas cosas "extras", como se muestra aquí abajo.
+En el segundo caso, podemos hacer algunas cosas "extras", como se
+muestra aquí abajo.
 
 """
 
 tokens = (
-    'NAME',
     'NUMBER',
     'PLUS',
     'MINUS',
-    'TIMES',
-    'DIVIDE',
-    'EQUALS',
-    'LPAREN',
-    'RPAREN',
 )
-
-
 
 t_PLUS = r'\+'
 t_MINUS = r'-'
-t_TIMES = r'\*'
-t_DIVIDE = r'/'
-t_EQUALS = r'='
-t_LPAREN = r'\('
-t_RPAREN = r'\)'
-t_NAME = r'[a-zA-Z_][a-zA-Z0-9_]*'
+"""Esta variable especial ignora estos caracteres"""
 t_ignore = " \t"
 
 
@@ -74,4 +62,4 @@ def apply(string):
     """Aplica el análisis léxico al string dado."""
     lexer.input(string)
 
-    return lexer
+    return list(lexer)

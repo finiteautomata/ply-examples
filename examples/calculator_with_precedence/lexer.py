@@ -24,11 +24,16 @@ tokens = (
     'PLUS',
     'TIMES',
     'MINUS',
+    'LEFT_PAR',
+    'RIGHT_PAR',
 )
 
 t_PLUS = r'\+'
 t_MINUS = r'-'
 t_TIMES = r'\*'
+t_LEFT_PAR = r'\('
+t_RIGHT_PAR = r'\)'
+
 """Esta variable especial ignora estos caracteres"""
 t_ignore = " \t"
 

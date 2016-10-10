@@ -20,5 +20,12 @@ class ParserTest(unittest.TestCase):
 
     def test_suma_y_multiplica(self):
         self.assertEqual(parse("2 + 4 * 3"), 14)
+
+    def test_resuelve_parentesis(self):
+        self.assertEqual(parse("(2 + 3) * 4"), 20)
+
+    def test_resuelve_negacion(self):
+        self.assertEqual(parse("-2"), -2)
+
 if __name__ == '__main__':
     unittest.main()
